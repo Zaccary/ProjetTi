@@ -28,7 +28,7 @@ $nbr_cat = count($liste);
                         </p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <a href="index_.php?id_categorie=<?php print $liste[$i]->id_jeux;?>&page=produits_categorie.php" type="button" class="btn btn-sm btn-outline-secondary" >View</a>
+                                <a href="index_.php?id_jeu=<?php print $liste[$i]->id_jeux;?>&page=jeux_page.php" type="button" class="btn btn-sm btn-outline-secondary" >View</a>
                                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             </div>
                       </div>

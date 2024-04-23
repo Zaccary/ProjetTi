@@ -48,4 +48,3 @@ require './admin/src/php/utils/liste_includes.php';
 </body>
 
 </html>
-sqd
