@@ -101,8 +101,8 @@ $ClassifDB = $ClassifDB->getAllClassification();
             <input type="number" class="form-control" id="stockage_config2" name="stockage_config2">
         </div>
         <div class="mb-3">
-            <label for="ram_config1" class="form-label">RAM Configuration recommandée</label>
-            <select class="form-control" id="ram_config1" name="ram_config1">
+            <label for="ram_config2" class="form-label">RAM Configuration recommandée</label>
+            <select class="form-control" id="ram_config2" name="ram_config2">
                 <option value="2">2</option>
                 <option value="4">4</option>
                 <option value="8">8</option>
