@@ -1,8 +1,9 @@
 <?php
 
-class Client
+class OS
 {
     private $_attributs = array();
+
     public function __construct(array $data)
     {
         $this->hydrate($data);
@@ -28,7 +29,5 @@ class Client
     }
 
 }
-
-
 
 

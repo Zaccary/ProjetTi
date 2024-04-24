@@ -1,19 +1,19 @@
 <?php
 
-class CarteGraphiqueDB extends CarteGraphique
+class OSDB extends OS
 {
 
     private $_bd;
     private $_array = array();
+    private $_jeu;
+
     public function __construct($cnx)
     {
         $this->_bd = $cnx;
     }
-
-
-    public function getAllCG()
+    public function getAllOS()
     {
-        $query = "select * from carte_graphique";
+        $query = "select * from OS";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;

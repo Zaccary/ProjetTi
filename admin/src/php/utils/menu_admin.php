@@ -13,7 +13,7 @@
                     <a class="nav-link active" aria-current="page" href="index_.php?page=exer_jquery.php">Exer jquery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=gestion_clients.php">Gestion des clients</a>
+                    <a class="nav-link active" aria-current="page" href="index_.php?page=gestion_jeux.php">Gestion des clients</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Link</a>
