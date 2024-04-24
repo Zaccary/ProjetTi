@@ -1,6 +1,6 @@
 <?php
 
-class OSDB extends OS
+class ClassificationDB extends Classification
 {
 
     private $_bd;
@@ -10,9 +10,9 @@ class OSDB extends OS
     {
         $this->_bd = $cnx;
     }
-    public function getAllOS()
+    public function getAllClassification()
     {
-        $query = "select * from OS";
+        $query = "select * from classification";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;

@@ -1,4 +1,14 @@
 <h2>Ajouter un jeu</h2>
+<?php
+$procoDB = new ProcesseursDB($cnx);
+$CGDB = new CarteGraphiqueDB($cnx);
+$OSDB = new OSDB($cnx);
+$ClassifDB = new ClassificationDB($cnx);
+$processeurs = $procoDB->getAllProco();
+$cartes_graphiques = $CGDB->getAllCG();
+$OSDB = $OSDB->getAllOs();
+$ClassifDB = $ClassifDB->getAllClassification();
+?>
 <div class="container">
     <form id="form_ajout_jeu" method="post" action="">
         <div class="mb-3">
@@ -13,7 +23,15 @@
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" name="description"></textarea>
         </div>
-
+        <div class="mb-3">
+            <label for="classification" class="form-label
+            ">Classification</label>
+            <select class="form-control" id="classification" name="classification">
+                <?php foreach ($ClassifDB as $class): ?>
+                    <option value="<?=  $class->pegi ?>"><?= $class->pegi ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
         <div class="mb-3">
             <label for="image" class="form-label">image</label>
             <input type="url" class="form-control" id="image" name="image">
@@ -22,21 +40,11 @@
             <label for="video" class="form-label">Lien de la vidéo</label>
             <input type="url" class="form-control" id="video" name="video">
         </div>
-        <?php
-        $procoDB = new ProcesseursDB($cnx);
-        $CGDB = new CarteGraphiqueDB($cnx);
-        $OSDB = new OSDB($cnx);
-        $processeurs = $procoDB->getAllProco();
-        $cartes_graphiques = $CGDB->getAllCG();
-        $OSDB = $OSDB->getAllOs();
-        ?>
-
-
         <div class="mb-3">
             <label for="processeur_config1" class="form-label">Processeur Configuration minimale</label>
             <select class="form-control" id="processeur_config1" name="processeur_config1">
                 <?php foreach ($processeurs as $processeur): ?>
-                    <option value="<?= $processeur->id ?>"><?= $processeur->nom ?></option>
+                    <option value="<?=  $processeur->nom ?>"><?= $processeur->nom ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -44,7 +52,7 @@
             <label for="carte_graphique_config1" class="form-label">Carte graphique Configuration minimale</label>
             <select class="form-control" id="carte_graphique_config1" name="carte_graphique_config1">
                 <?php foreach ($cartes_graphiques as $carte_graphique): ?>
-                    <option value="<?= $carte_graphique->id ?>"><?= $carte_graphique->nom ?></option>
+                    <option value="<?=  $carte_graphique->nom ?>"><?= $carte_graphique->nom ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -68,7 +76,7 @@
             ">OS Configuration minimale</label>
             <select class="form-control" id="os_config1" name="os_config1">
                 <?php foreach ($OSDB as $os): ?>
-                    <option value="<?= $os->id ?>"><?= $os->nom ?></option>
+                    <option value="<?= $os->nom ?>"><?= $os->nom ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -76,7 +84,7 @@
             <label for="carte_graphique_config2" class="form-label">Carte graphique Configuration recommandée</label>
             <select class="form-control" id="carte_graphique_config2" name="carte_graphique_config2">
                 <?php foreach ($cartes_graphiques as $carte_graphique): ?>
-                    <option value="<?= $carte_graphique->id ?>"><?= $carte_graphique->nom ?></option>
+                    <option value="<?=  $carte_graphique->nom ?>"><?= $carte_graphique->nom ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -84,7 +92,7 @@
             <label for="processeur_config2" class="form-label">Processeur Configuration recommandée</label>
             <select class="form-control" id="processeur_config2" name="processeur_config2">
                 <?php foreach ($processeurs as $processeur): ?>
-                    <option value="<?= $processeur->id ?>"><?= $processeur->nom ?></option>
+                    <option value="<?=  $processeur->nom ?>"><?= $processeur->nom ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -107,7 +115,7 @@
             <label for="os_config2" class="form-label">OS Configuration recommandée</label>
             <select class="form-control" id="os_config2" name="os_config2">
                 <?php foreach ($OSDB as $os): ?>
-                    <option value="<?= $os->id ?>"><?= $os->nom ?></option>
+                    <option value="<?= $os->nom?>"><?= $os->nom ?></option>
                 <?php endforeach; ?>
             </select>
         </div>

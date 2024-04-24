@@ -51,5 +51,32 @@ class JeuxDB extends Jeux
             print "Echec de la requête " . $e->getMessage();
         }
     }
+    function ajout_jeux($nom_jeu, $prix, $description, $image, $video, $ram_config1, $stockage_config1, $ram_config2, $stockage_config2, $processeur_config1, $processeur_config2, $carte_graphique_config1, $carte_graphique_config2, $os_config1, $os_config2, $pegi){
+        try{
+            $query="select ajout_jeux(:nom_jeu,:prix,:description,:image,:video,:ram_config1,:stockage_config1,:ram_config2,:stockage_config2,:processeur_config1,:processeur_config2,:carte_graphique_config1,:carte_graphique_config2,:os_config1,:os_config2,:pegi)";
+            $res = $this->_bd->prepare($query);
+            $res->bindValue(':nom_jeu',$nom_jeu);
+            $res->bindValue(':prix',$prix);
+            $res->bindValue(':description',$description);
+            $res->bindValue(':image',$image);
+            $res->bindValue(':video',$video);
+            $res->bindValue(':ram_config1',$ram_config1);
+            $res->bindValue(':stockage_config1',$stockage_config1);
+            $res->bindValue(':ram_config2',$ram_config2);
+            $res->bindValue(':stockage_config2',$stockage_config2);
+            $res->bindValue(':processeur_config1',$processeur_config1);
+            $res->bindValue(':processeur_config2',$processeur_config2);
+            $res->bindValue(':carte_graphique_config1',$carte_graphique_config1);
+            $res->bindValue(':carte_graphique_config2',$carte_graphique_config2);
+            $res->bindValue(':os_config1',$os_config1);
+            $res->bindValue(':os_config2',$os_config2);
+            $res->bindValue(':pegi',$pegi);
+            $res->execute();
+            $data = $res->fetch();
+            return $data;
+        }catch(PDOException $e){
+            print "Echec ".$e->getMessage();
+        }
+    }
 
 }

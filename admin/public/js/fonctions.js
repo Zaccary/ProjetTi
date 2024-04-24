@@ -38,17 +38,28 @@ $(document).ready(function () {
 
     $('#texte_bouton_submit').click(function (e) { //e = formulaire
         e.preventDefault(); //empêcher l'attribut action de form
-        let email = $('#email').val();
-        let nom = $('#nom').val();
-        let prenom = $('#prenom').val();
-        let adresse = $('#adresse').val();
-        let numero = $('#numero').val();
-        let param = 'email=' + email + '&nom=' + nom + '&prenom=' + prenom + '&adresse=' + adresse + '&numero=' + numero;
+        let nom_jeu = $('#nom_jeu').val();
+        let prix = $('#prix').val();
+        let description = $('#description').val();
+        let image = $('#image').val();
+        let video = $('#video').val();
+        let ram_config1 = $('#ram_config1').val();
+        let stockage_config1 = $('#stockage_config1').val();
+        let ram_config2 = $('#ram_config2').val();
+        let stockage_config2 = $('#stockage_config2').val();
+        let processeur_config1 = $('#processeur_config1').val();
+        let processeur_config2 = $('#processeur_config2').val();
+        let carte_graphique_config1 = $('#carte_graphique_config1').val();
+        let carte_graphique_config2 = $('#carte_graphique_config2').val();
+        let os_config1 = $('#os_config1').val();
+        let os_config2 = $('#os_config2').val();
+        let pegi = $('#classification').val();
+        let param = 'nom_jeu=' + nom_jeu + '&prix=' + prix + '&description=' + description + '&image=' + image + '&video=' + video + '&ram_config1=' + ram_config1 + '&stockage_config1=' + stockage_config1 + '&ram_config2=' + ram_config2 + '&stockage_config2=' + stockage_config2 + '&processeur_config1=' + processeur_config1 + '&processeur_config2=' + processeur_config2 + '&carte_graphique_config1=' + carte_graphique_config1 + '&carte_graphique_config2=' + carte_graphique_config2 + '&os_config1=' + os_config1 + '&os_config2=' + os_config2 + '&pegi=' + pegi;
         let retour = $.ajax({
             type: 'get',
             dataType: 'json',
             data: param,
-            url: './src/php/ajax/ajaxAjoutClient.php',
+            url: './src/php/ajax/ajaxAjoutJeux.php',
             success: function (data) {//data = retour du # php
                 console.log(data);
             }
