@@ -22,13 +22,47 @@
             <label for="video" class="form-label">Lien de la vidéo</label>
             <input type="url" class="form-control" id="video" name="video">
         </div>
+        <?php
+        $procoDB = new ProcesseursDB($cnx);
+        $CGDB = new CarteGraphiqueDB($cnx);
+        $processeurs = $procoDB->getAllProco();
+        $cartes_graphiques = $CGDB->getAllCG();
+        //$oss = $jeuxDB->getAllOs();
+        ?>
+
+
+
         <div class="mb-3">
-            <label for="config1" class="form-label">Configuration 1</label>
-            <input type="text" class="form-control" id="config1" name="config1">
+            <label for="processeur_config1" class="form-label">Processeur Configuration minimale</label>
+            <select class="form-control" id="processeur_config1" name="processeur_config1">
+                <?php foreach($processeurs as $processeur): ?>
+                    <option value="<?= $processeur->id ?>"><?= $processeur->nom ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <div class="mb-3">
-            <label for="config2" class="form-label">Configuration 2</label>
-            <input type="text" class="form-control" id="config2" name="config2">
+            <label for="carte_graphique_config1" class="form-label">Carte graphique Configuration minimale</label>
+            <select class="form-control" id="carte_graphique_config1" name="carte_graphique_config1">
+                <?php foreach($cartes_graphiques as $carte_graphique): ?>
+                    <option value="<?= $carte_graphique->id ?>"><?= $carte_graphique->nom ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="processeur_config1" class="form-label">Processeur Configuration recommandée</label>
+            <select class="form-control" id="processeur_config1" name="processeur_config1">
+                <?php foreach($processeurs as $processeur): ?>
+                    <option value="<?= $processeur->id ?>"><?= $processeur->nom ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="carte_graphique_config1" class="form-label">Carte graphique Configuration recommandée</label>
+            <select class="form-control" id="carte_graphique_config1" name="carte_graphique_config1">
+                <?php foreach($cartes_graphiques as $carte_graphique): ?>
+                    <option value="<?= $carte_graphique->id ?>"><?= $carte_graphique->nom ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <button type="submit" id="texte_bouton_submit" value="Ajouter" class="btn btn-primary">
             Ajouter
