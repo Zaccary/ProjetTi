@@ -12,7 +12,7 @@ class OSDB extends OS
     }
     public function getAllOS()
     {
-        $query = "select * from OS";
+        $query = "select * from OS order by nom desc";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;

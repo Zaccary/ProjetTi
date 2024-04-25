@@ -13,7 +13,7 @@ class CarteGraphiqueDB extends CarteGraphique
 
     public function getAllCG()
     {
-        $query = "select * from carte_graphique";
+        $query = "select * from carte_graphique order by nom desc ";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;

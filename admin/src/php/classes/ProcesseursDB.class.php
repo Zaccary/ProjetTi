@@ -13,7 +13,7 @@ class ProcesseursDB extends Processeurs
 
     public function getAllProco()
     {
-        $query = "select * from processeur";
+        $query = "select * from processeur order by nom desc ";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;

@@ -14,12 +14,7 @@ $nbr_cat = count($liste);
             ?>
             <div class="col">
                 <div class="card shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c"/>
-                        <image xlink:href="<?php print $liste[$i]->image?>" alt="image de <?php print $liste[$i]->nom_jeu?>" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"/>
-                    </svg>
-
+                    <img class="bd-placeholder-img card-img-top" src="./admin/public/images/<?php print $liste[$i]->image?>" alt="image de <?php print $liste[$i]->nom_jeu?>" width="100%" height="225">
                     <div class="card-body">
                         <p class="card-text">
                             <?php
