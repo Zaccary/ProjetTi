@@ -28,14 +28,22 @@ require './admin/src/php/utils/liste_includes.php';
     </nav>
     <div id="contenu">
         <?php
-        //si aucune variable de session 'page'
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
         if (!isset($_SESSION['page'])) {
             $_SESSION['page'] = './pages/accueil.php';
         }
+
         if (isset($_GET['page'])) {
-            //print "<br>paramètre page : ".$_GET['page']."<br>";
             $_SESSION['page'] = 'pages/'.$_GET['page'];
         }
+        $current_url = strtok($_SERVER["REQUEST_URI"],'?');
+        $url_with_page = $current_url . '?page=' . basename($_SESSION['page']);
+
+        echo '<script>window.history.replaceState({}, document.title, "'.$url_with_page.'");</script>';
+        //adaptation du code pour éviter que l'acceuil ne se charge pas correctement quand on retourne en arrière
         if (file_exists($_SESSION['page'])) {
             include $_SESSION['page'];
         } else {
@@ -43,6 +51,7 @@ require './admin/src/php/utils/liste_includes.php';
         }
         ?>
     </div>
+
     <footer id="footer">&nbsp;</footer>
 </div>
 </body>

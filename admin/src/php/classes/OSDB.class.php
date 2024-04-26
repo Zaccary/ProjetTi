@@ -12,7 +12,7 @@ class OSDB extends OS
     }
     public function getAllOS()
     {
-        $query = "select * from OS order by nom desc";
+        $query = "select * from os order by length(nom) asc,nom";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;

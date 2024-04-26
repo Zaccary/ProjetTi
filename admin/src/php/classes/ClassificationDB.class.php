@@ -12,7 +12,7 @@ class ClassificationDB extends Classification
     }
     public function getAllClassification()
     {
-        $query = "select * from classification";
+        $query = "select * from classification order by length(pegi) asc,pegi asc";
         try {
             $this->_bd->beginTransaction();
             $resultset = $this->_bd->prepare($query);;
