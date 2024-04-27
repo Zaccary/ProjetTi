@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('#texte_bouton_submit').text("Insérer ou mettre à jour");
+    $('#texte_bouton_submit').text("Insérer");
 
 
     //quand une balise contient des atttributs,
@@ -29,10 +29,10 @@ $(document).ready(function () {
     })
 
 
-    $('#texte_bouton_submit').text("Ajouter ou mettre à jour");
+    $('#texte_bouton_submit').text("Ajouter");
 
     $('#reset').click(function () {
-        $('#texte_bouton_submit').text("Ajouter ou mettre à jour");
+        $('#texte_bouton_submit').text("Ajouter");
     })
 
 

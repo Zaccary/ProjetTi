@@ -2,9 +2,10 @@
 if (isset($_POST['submit_login'])) { //name du submit
     extract($_POST,EXTR_OVERWRITE);
     //var_dump($_POST);
-    $ad = new AdminDB($cnx);
-    $admin = $ad->getAdmin($login,$password);//$admin reçoit 1 ou 0
-    if($admin){
+    $Pe = new PersonneDB($cnx);
+    $Personne = $Pe->getPersonne($login,$password);//$admin reçoit 1 ou 0
+    print "Personne : ".$Personne;
+    if($Personne==1){
         //créer variable de session pour admin
         $_SESSION['admin']=1; //sera vérifiée dans toutes les pages admin
         ////rediriger vers dossier admin
@@ -12,11 +13,15 @@ if (isset($_POST['submit_login'])) { //name du submit
         <meta http-equiv="refresh" content="0;URL=admin/index_.php?page=accueil_admin.php">
         <?php
 
-    }else {
-        //rediriger vers accueil public
-        print "<br>Accès réservé aux administrateurs";
+    }else if($Personne==2){
         ?>
-        <meta http-equiv="refresh" content="3;URL=index_.php?page=accueil.php">
+        <meta http-equiv="refresh" content="10;URL=index_.php?page=accueil.php">
+        <?php
+    }
+    else{
+        print "Erreur de login ou de mot de passe";
+        ?>
+            <meta http-equiv="refresh" content="3;URL=index_.php?page=accueil.php">
         <?php
     }
 }

@@ -24,5 +24,4 @@ $Je = new JeuxDB($cnx);
 
 $data[] = $Je->ajout_jeux($_GET['nom_jeu'],$_GET['prix'],$_GET['description'],$_GET['image'],$_GET['video'],$_GET['ram_config1'],$_GET['stockage_config1'],$_GET['ram_config2'],$_GET['stockage_config2'],$_GET['processeur_config1'],$_GET['processeur_config2'],$_GET['carte_graphique_config1'],$_GET['carte_graphique_config2'],$_GET['os_config1'],$_GET['os_config2'],$_GET['pegi']);
 var_dump($data);
-
 print json_encode($data);
