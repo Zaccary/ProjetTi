@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-    $('#texte_bouton_submit').text("Insérer");
 
 
     //quand une balise contient des atttributs,
@@ -29,7 +28,6 @@ $(document).ready(function () {
     })
 
 
-    $('#texte_bouton_submit').text("Ajouter");
 
     $('#reset').click(function () {
         $('#texte_bouton_submit').text("Ajouter");
@@ -38,7 +36,8 @@ $(document).ready(function () {
 
     $('#texte_bouton_submit').click(function (e) { //e = formulaire
         e.preventDefault(); //empêcher l'attribut action de form
-        let typeDeSubmit = $('#texte_bouton_submit').text();
+        let id_jeu = $('#id_jeu').val();
+        let typeDeSubmit = $('#texte_bouton_submit').val();
         let nom_jeu = $('#nom_jeu').val();
         let prix = $('#prix').val();
         let description = $('#description').val();
@@ -55,12 +54,20 @@ $(document).ready(function () {
         let os_config1 = $('#os_config1').val();
         let os_config2 = $('#os_config2').val();
         let pegi = $('#classification').val();
-        let param = 'nom_jeu=' + nom_jeu + '&prix=' + prix + '&description=' + description + '&image=' + image + '&video=' + video + '&ram_config1=' + ram_config1 + '&stockage_config1=' + stockage_config1 + '&ram_config2=' + ram_config2 + '&stockage_config2=' + stockage_config2 + '&processeur_config1=' + processeur_config1 + '&processeur_config2=' + processeur_config2 + '&carte_graphique_config1=' + carte_graphique_config1 + '&carte_graphique_config2=' + carte_graphique_config2 + '&os_config1=' + os_config1 + '&os_config2=' + os_config2 + '&pegi=' + pegi;
+        let urll; // Declare urll here
+        if (typeDeSubmit === "Ajouter") {
+            urll = './src/php/ajax/ajaxAjoutJeux.php';
+        }
+        else {
+            urll = './src/php/ajax/ajaxUpdateJeux.php';
+        }
+        console.log(id_jeu)
+        let param = 'nom_jeu=' + nom_jeu + '&prix=' + prix + '&description=' + description + '&image=' + image + '&video=' + video + '&ram_config1=' + ram_config1 + '&stockage_config1=' + stockage_config1 + '&ram_config2=' + ram_config2 + '&stockage_config2=' + stockage_config2 + '&processeur_config1=' + processeur_config1 + '&processeur_config2=' + processeur_config2 + '&carte_graphique_config1=' + carte_graphique_config1 + '&carte_graphique_config2=' + carte_graphique_config2 + '&os_config1=' + os_config1 + '&os_config2=' + os_config2 + '&pegi=' + pegi+'&id_jeu='+id_jeu;
         let retour = $.ajax({
             type: 'get',
             dataType: 'json',
             data: param,
-            url: './src/php/ajax/ajaxAjoutJeux.php',
+            url: urll,
             success: function (data) {//data = retour du # php
                 console.log(data);
             }

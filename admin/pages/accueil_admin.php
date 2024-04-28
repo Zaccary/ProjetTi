@@ -43,7 +43,6 @@ if(isset($_GET['id_jeu'])) {
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <a href="index_.php?id_jeu=<?php echo $liste[$i]->id_jeux; ?>&page=jeux_page.php" type="button" class="btn btn-sm btn-outline-secondary">Détails</a>
                                     <a href="index_.php?id_jeu=<?php echo $liste[$i]->id_jeux; ?>&page=ajout_jeux.php" type="button" class="btn btn-sm btn-outline-secondary" value>Modifier</a>
                                 </div>
                             </div>
