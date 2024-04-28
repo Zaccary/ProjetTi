@@ -7,13 +7,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=accueil.php">Accueil</a>
+                    <a class="nav-link active" aria-current="page" href="index_.php?page=accueil_admin.php">Accueil</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index_.php?page=exer_jquery.php">Exer jquery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index_.php?page=gestion_jeux.php">Gestion des clients</a>
+                    <a class="nav-link active" aria-current="page" href="index_.php?page=gestion_jeux.php">Gestion des jeux</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="">Link</a>

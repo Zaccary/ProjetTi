@@ -15,7 +15,7 @@ if (isset($_POST['submit_login'])) { //name du submit
 
     }else if($Personne==2){
         ?>
-        <meta http-equiv="refresh" content="10;URL=index_.php?page=accueil.php">
+        <meta http-equiv="refresh" content="0;URL=index_.php?page=accueil.php">
         <?php
     }
     else{

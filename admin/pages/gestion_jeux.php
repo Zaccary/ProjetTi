@@ -1,5 +1,7 @@
 <h2>Gestion des clients</h2>
-<a href="index_.php?page=ajout_jeux.php">Nouveau client</a><br>
+
+<a href="index_.php?page=ajout_jeux.php&reset=true"><button class="btn btn-secondary">ajout jeux</button></a><br>
+
 
 <?php
 //récupération des clients et affichage dans table bootstrap
@@ -9,7 +11,7 @@ $liste = $jeux->getAllJeux();
 $nbr = count($liste);
 
 if($nbr == 0){
-    print "<br>Aucun client encodé<br>";
+    print "<br>Aucun Jeux<br>";
 }
 else{
     ?>

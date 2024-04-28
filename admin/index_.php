@@ -30,7 +30,7 @@ require './src/php/utils/liste_includes.php';
         <?php
         //si aucune variable de session 'page'
         if (!isset($_SESSION['page'])) {
-            $_SESSION['page'] = './pages/accueil_admin.php';
+            $_SESSION['page'] = './pages/accuei.php';
         }
         if (isset($_GET['page'])) {
             //print "<br>paramètre page : ".$_GET['page']."<br>";

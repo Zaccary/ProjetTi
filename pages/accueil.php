@@ -48,11 +48,6 @@ if(isset($_GET['id_jeu'])) {
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <a href="index_.php?id_jeu=<?php echo $liste[$i]->id_jeux; ?>&page=jeux_page.php" type="button" class="btn btn-sm btn-outline-secondary">Détails</a>
-                                    <?php
-                                    if (isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], 'index_.php') !== false) {
-                                        echo '<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>';
-                                    }
-                                    ?>
                                 </div>
                             </div>
                         </div>

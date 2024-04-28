@@ -38,6 +38,7 @@ $(document).ready(function () {
 
     $('#texte_bouton_submit').click(function (e) { //e = formulaire
         e.preventDefault(); //empêcher l'attribut action de form
+        let typeDeSubmit = $('#texte_bouton_submit').text();
         let nom_jeu = $('#nom_jeu').val();
         let prix = $('#prix').val();
         let description = $('#description').val();
