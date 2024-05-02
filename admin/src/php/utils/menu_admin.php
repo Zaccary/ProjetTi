@@ -24,9 +24,10 @@
                 </li>
             </ul>
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search" name="recherche" id="recherche">
+                <button class="btn btn-outline-success" type="submit">Recherche</button>
             </form>
+            <a href="index_.php?page=disconnect.php" type="button" class="btn btn-outline-secondary">Log out ADMIN</a>
         </div>
     </div>
 </nav>

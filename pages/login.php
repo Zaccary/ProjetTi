@@ -4,24 +4,27 @@ if (isset($_POST['submit_login'])) { //name du submit
     //var_dump($_POST);
     $Pe = new PersonneDB($cnx);
     $Personne = $Pe->getPersonne($login,$password);//$admin reçoit 1 ou 0
-    print "Personne : ".$Personne;
-    if($Personne==1){
+    $valChoix=intval($Personne/10);
+    $idPersonne=$Personne%10;
+    if ($Personne == 0) {
+        print "Erreur de login ou de mot de passe";
+        ?>
+        <meta http-equiv="refresh" content="3;URL=index_.php?page=accueil.php">
+        <?php
+    }
+    else
+        $_SESSION['idPersonne']=$idPersonne;
+    if($valChoix==1){
         //créer variable de session pour admin
         $_SESSION['admin']=1; //sera vérifiée dans toutes les pages admin
         ////rediriger vers dossier admin
         ?>
         <meta http-equiv="refresh" content="0;URL=admin/index_.php?page=accueil_admin.php">
         <?php
-
-    }else if($Personne==2){
+//forcer conversion en entier
+    }else if($valChoix==2){
         ?>
         <meta http-equiv="refresh" content="0;URL=index_.php?page=accueil.php">
-        <?php
-    }
-    else{
-        print "Erreur de login ou de mot de passe";
-        ?>
-            <meta http-equiv="refresh" content="3;URL=index_.php?page=accueil.php">
         <?php
     }
 }

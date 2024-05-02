@@ -31,5 +31,4 @@ class PersonneDB extends Personne
     }
 
 
-
 }

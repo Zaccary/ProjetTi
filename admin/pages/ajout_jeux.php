@@ -8,25 +8,14 @@ $cartes_graphiques = $CGDB->getAllCG();
 $OSDB = $OSDB->getAllOs();
 $ClassifDB = $ClassifDB->getAllClassification();
 $id_jeu = null;
-if (isset($_GET['reset'])) {
-    $_SESSION['id_jeu'] = null;
-}
 // Démarrer la session si elle n'est pas déjà démarrée
 if(isset($_GET['id_jeu'])) {
     $id_jeu = $_GET['id_jeu'];
-    // Sauvegarder id_jeu dans la session
-    $_SESSION['id_jeu'] = $id_jeu;
-} else {
-    // Si non, vérifier si le paramètre id_jeu est défini dans la variable de session
-    if(isset($_SESSION['id_jeu'])) {
-        $id_jeu = $_SESSION['id_jeu'];
-    }
 }
 if($id_jeu){
 $cat = new jeuxDB($cnx);
 $jeu = $cat->getJeuxById($id_jeu);
 }
-print $id_jeu;
 ?>
 <div class="container">
     <h2>Ajouter un jeu</h2>
@@ -158,6 +147,6 @@ print $id_jeu;
                 print "Ajouter";
             }?>
         </button>
-        <button class="btn btn-primary" type="reset" id="reset">Annuler</button>
+        <a href="index_.php?page=ajout_jeux.php" class="btn btn-primary" type="reset" id="reset">Annuler</a>
     </form>
 </div>

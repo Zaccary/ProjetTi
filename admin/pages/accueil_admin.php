@@ -3,6 +3,9 @@
 require 'src/php/utils/verifier_connexion.php';
 $cat = new JeuxDB($cnx);
 $liste = $cat->getAllJeux();
+if(isset($_GET['recherche'])) {
+    $liste = recherche($liste, $_GET['recherche']);
+}
 if(isset($_GET['tri'])) {
     if($_GET['tri'] == 'prix') {
         $liste = trierJeuxParPrix($liste);
@@ -77,5 +80,16 @@ function trierJeuxParNom($liste){
     }
     array_multisort($listeNom, SORT_ASC, $listeJeux);
     return $listeJeux;
+}
+function recherche($liste, $recherche){
+    $listeJeux = $liste;
+    $recherche = strtolower($recherche);
+    $listeRecherche = array();
+    foreach($listeJeux as $jeu){
+        if(strpos(strtolower($jeu->nom_jeu), $recherche) !== false){
+            $listeRecherche[] = $jeu;
+        }
+    }
+    return $listeRecherche;
 }
 ?>
