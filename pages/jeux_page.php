@@ -37,21 +37,22 @@ $jeu = $cat->getJeuxById($id_jeu);
     <div class="row mt-4">
         <div class="col-12">
             <p><?php print $jeu->description; ?></p>
-            <h5>Configuration minimale :</h5>
-            <ul>
-                <li>RAM : <?php print $jeu->ram_config1; ?> GB</li>
-                <li>Stockage : <?php print $jeu->stockage_config1; ?> GB</li>
-                <li>Processeur : <?php print $jeu->nom_processeur_config1; ?></li>
-                <li>Carte Graphique : <?php print $jeu->nom_carte_graphique_config1; ?></li>
-                <li>OS : <?php print $jeu->nom_os_config1; ?></li>
+            <h4 id="config">Configurations</h4>
+            <h5 id="configtit1">Configuration minimale :</h5>
+            <ul id="configMin">
+                <li id="ram1">RAM : <?php print $jeu->ram_config1; ?> GB</li>
+                <li id="stock1">Stockage : <?php print $jeu->stockage_config1; ?> GB</li>
+                <li id="proco1">Processeur : <?php print $jeu->nom_processeur_config1; ?></li>
+                <li id="cg1">Carte Graphique : <?php print $jeu->nom_carte_graphique_config1; ?></li>
+                <li id="os1">OS : <?php print $jeu->nom_os_config1; ?></li>
             </ul>
-            <h5>Configuration recommandée :</h5>
-            <ul>
-                <li>RAM : <?php print $jeu->ram_config2; ?> GB</li>
-                <li>Stockage : <?php print $jeu->stockage_config2; ?> GB</li>
-                <li>Processeur : <?php print $jeu->nom_processeur_config2; ?></li>
-                <li>Carte Graphique : <?php print $jeu->nom_carte_graphique_config2; ?></li>
-                <li>OS : <?php print $jeu->nom_os_config2; ?></li>
+            <h5 id="configtit2">Configuration recommandée :</h5>
+            <ul id="configRec">
+                <li id="ram2">RAM : <?php print $jeu->ram_config2; ?> GB</li>
+                <li id="stock2">Stockage : <?php print $jeu->stockage_config2; ?> GB</li>
+                <li id="proco2">Processeur : <?php print $jeu->nom_processeur_config2; ?></li>
+                <li id ="cg2">Carte Graphique : <?php print $jeu->nom_carte_graphique_config2; ?></li>
+                <li id ="os2">OS : <?php print $jeu->nom_os_config2; ?></li>
             </ul>
         </div>
     </div>

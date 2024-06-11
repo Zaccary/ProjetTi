@@ -106,5 +106,15 @@ class JeuxDB extends Jeux
             print "Echec ".$e->getMessage();
         }
     }
+    function supp_jeux($id_jeu){
+        try{
+            $query="CALL supp_jeux(:id_jeu)";
+            $res = $this->_bd->prepare($query);
+            $res->bindValue(':id_jeu', $id_jeu);
+            $res->execute();
+        }catch(PDOException $e){
+            print "Echec ".$e->getMessage();
+        }
+    }
 
 }

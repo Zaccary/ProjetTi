@@ -75,12 +75,10 @@ $jeu = $cat->getJeuxById($id_jeu);
         <div class="mb-3">
             <label for="ram_config1" class="form-label">RAM (GB)</label>
             <select class="form-control" id="ram_config1" name="ram_config1">
-                <option value="2" <?= $id_jeu && $jeu->ram_config1 == 2 ? 'selected' : '' ?>>2</option>
-                <option value="4" <?= $id_jeu && $jeu->ram_config1 == 4 ? 'selected' : '' ?>>4</option>
-                <option value="8" <?= $id_jeu && $jeu->ram_config1 == 8 ? 'selected' : '' ?>>8</option>
-                <option value="16" <?= $id_jeu && $jeu->ram_config1 == 16 ? 'selected' : '' ?>>16</option>
-                <option value="32" <?= $id_jeu && $jeu->ram_config1 == 32 ? 'selected' : '' ?>>32</option>
-                <option value="64" <?= $id_jeu && $jeu->ram_config1 == 64 ? 'selected' : '' ?>>64</option>
+                <?php
+                for ($value = 2; $value <= 64; $value *= 2) : ?>
+                    <option value="<?= $value ?>" <?= $id_jeu && $jeu->ram_config1 == $value ? 'selected' : '' ?>><?= $value ?></option>
+                <?php endfor; ?>
             </select>
         </div>
         <div class="mb-3">

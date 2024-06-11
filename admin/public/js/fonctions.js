@@ -33,7 +33,21 @@ $(document).ready(function () {
         $('#texte_bouton_submit').text("Ajouter");
     })
 
-
+    $('body').on('click', '#text_button_supp', function (e) {
+        e.preventDefault();
+        let id_jeu = $(this).val();
+        console.log(id_jeu+" id_jeu");
+        let param = 'id_jeu=' + id_jeu;
+        let retour = $.ajax({
+            type: 'get',
+            dataType: 'json',
+            data: param,
+            url: './src/php/ajax/ajaxSuppJeux.php',
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
     $('#texte_bouton_submit').click(function (e) { //e = formulaire
         e.preventDefault(); //empêcher l'attribut action de form
         let id_jeu = $('#id_jeu').val();
@@ -102,50 +116,120 @@ $(document).ready(function () {
     })
 
 
-    $('#vie').hide();
-    $('#para1').hide();
-    $('#deuxieme').hide();
-    $('#troisieme').hide();
-    $('#quatrieme').hide();
-    $('#cinquieme').hide();
-    $('#cacher').hide();
-    $('#montrer_image').hide();
-
-    $('h1').click(function () {
-        $('#vie').show();
-        $(this).css('color', 'red');
+    $('#configMin').hide();
+    $('#configtit1').hide();
+    $('#configtit2').hide();
+    $('#configRec').hide();
+    $('#config').click(function () {
+        $('#configtit1').show();
+        $('#configtit2').show();
+        $('#config').hide();
     })
-
-    $('#vie').mouseover(function () {
+    $('#configtit1').click(function () {
+        $('#configMin').show();
+    })
+    $('#configtit2').click(function () {
+        $('#configRec').show();
+    })
+    $('#ram1').mouseover(function () {
         $(this).css({
-            'font-weight': 'bold',
             'font-style': 'italic',
-            'color': '#0044AA'
         });
         $(this).mouseout(function () {
-            $('#para1').show();
+            $(this).css({
+                'font-style': 'normal',
+            });
         })
     })
-
-    $('#para1').click(function () {
-        $('#deuxieme').slideDown('slow');
+    $('#stock1').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
     })
-
-    $('#para2').click(function () {
-        $('#troisieme').fadeIn('slow');
+    $('#proco1').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
     })
-
-    $('#para3').click(function () {
-        $('#quatrieme').fadeIn('fast');
+    $('#cg1').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
     })
-
-    $('#quatrieme').click(function () {
-        $('#cinquieme').fadeIn(5000);
-        $('#cacher').show();
+    $('#os1').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
     })
-
-    $('#cacher').click(function () {
-        $('#montrer_image').fadeIn(2000);
+    $('#ram2').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
+    })
+    $('#stock2').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
+    })
+    $('#proco2').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
+    })
+    $('#cg2').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
+    })
+    $('#os2').mouseover(function () {
+        $(this).css({
+            'font-style': 'italic',
+        });
+        $(this).mouseout(function () {
+            $(this).css({
+                'font-style': 'normal',
+            });
+        })
     })
 
 });
