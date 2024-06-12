@@ -30,9 +30,9 @@ else{
         ?>
         <tr>
             <th><?= $liste[$i]->id_jeux;?></th>
-            <td contenteditable="true" id="<?= $liste[$i]->id_jeux;?>" name="nom_jeu"><?= $liste[$i]->nom_jeu;?></td>
-            <td contenteditable="true" id="<?= $liste[$i]->id_jeux;?>" name="prix"><?= $liste[$i]->prix;?></td>
-            <td data-id="<?= $liste[$i]->id_jeux;?>" contenteditable="true"><button type="submit" id="text_button_supp" value=<?= $liste[$i]->id_jeux;?> class="btn btn-primary">supprimer</button></td>
+            <td contenteditable="false" id="<?= $liste[$i]->id_jeux;?>" name="nom_jeu"><?= $liste[$i]->nom_jeu;?></td>
+            <td contenteditable="false" id="<?= $liste[$i]->id_jeux;?>" name="prix"><?= $liste[$i]->prix;?></td>
+            <td contenteditable="false" data-id="<?= $liste[$i]->id_jeux;?>"><button type="submit" id="text_button_supp" value=<?= $liste[$i]->id_jeux;?> class="btn btn-primary">supprimer</button></td>
         </tr>
             <?php
         }

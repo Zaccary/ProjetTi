@@ -7,7 +7,8 @@ if(isset($_SESSION["idPersonne"])){
 ?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Jeux2Fou</a>
+        <img src="./admin/public/images/ps5-gamepad-on-hand-logo-FF1463D003-seeklogo.com.png" id="logoSite" alt="logo" width="40" height="40" style="border-radius: 50%;">
+        <a class="navbar-brand" id="titreSite" href="#">Jeux2Fou</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,10 +17,6 @@ if(isset($_SESSION["idPersonne"])){
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="index_.php?page=accueil.php">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Link</a>
-                </li>
-
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search" name="recherche" id="recherche">

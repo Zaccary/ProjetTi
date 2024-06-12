@@ -2,33 +2,6 @@ $(document).ready(function () {
 
 
 
-    //quand une balise contient des atttributs,
-    //cette balise est un tableau
-    $("td[id]").click(function () {
-        //trim : supprimer les blancs avant et après
-        let valeur1 = $.trim($(this).text());
-        let id = $(this).attr('id');
-        let name = $(this).attr('name');
-        console.log(valeur1 + " id = " + id + " name = " + name);
-        $(this).blur(function () {
-            let valeur2 = $.trim($(this).text());
-            if (valeur1 != valeur2) {
-                let parametre = "id=" + id + "&name=" + name + "&valeur=" + valeur2;
-                let retour = $.ajax({
-                    type: 'get',
-                    dataType: 'json',
-                    data: parametre,
-                    url: './src/php/ajax/ajaxUpdateClient.php',
-                    success: function (data) {//data = retour du # php
-                        console.log(data);
-                    }
-                })
-            }
-        })
-    })
-
-
-
     $('#reset').click(function () {
         $('#texte_bouton_submit').text("Ajouter");
     })
@@ -84,33 +57,6 @@ $(document).ready(function () {
             url: urll,
             success: function (data) {//data = retour du # php
                 console.log(data);
-            }
-        })
-    })
-
-    $('#email').blur(function () {
-        let email = $(this).val();
-        console.log("email : " + email);
-        let parametre = 'email=' + email;
-        let retour = $.ajax({
-            type: 'get',
-            dataType: 'json',
-            data: parametre,
-            url: './src/php/ajax/ajaxRechercheClient.php',
-            success: function (data) {//data = retour du # php
-                console.log(data);
-
-                $('#nom').val(data[0].nom_client);
-                $('#prenom').val(data[0].prenom_client);
-                $('#adresse').val(data[0].adresse);
-                $('#numero').val(data[0].numero);
-                $('#texte_bouton_submit').text("Mettre à jour");
-
-                let nom2 = $('#nom').val();
-                if (nom2 === '') {
-                    $('#texte_bouton_submit').text("Ajouter");
-                }
-
             }
         })
     })
@@ -231,5 +177,23 @@ $(document).ready(function () {
             });
         })
     })
-
+    $('#logoSite').click(    function () {
+        width = $(this).width();
+        height = $(this).height();
+        text= $('#titreSite').text();
+        width++;
+        height++;
+        $(this).css({
+            'width': width,
+            'height': height,
+        });
+        setTimeout(() => {
+            $(this).css({
+                'width':  '40px',
+                'height': '40px'
+            });
+            $('#titreSite').text((width-40)/10+" cps");
+            $(this).off('click');
+        }, 10000);
+    })
 });
