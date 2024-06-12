@@ -6,13 +6,6 @@ $liste = $cat->getAllJeux();
 if(isset($_GET['recherche'])) {
     $liste = recherche($liste, $_GET['recherche']);
 }
-if(isset($_GET['tri'])) {
-    if($_GET['tri'] == 'prix') {
-        $liste = trierJeuxParPrix($liste);
-    } elseif($_GET['tri'] == 'nom') {
-        $liste = trierJeuxParNom($liste);
-    }
-}
 $nbr_cat = count($liste);
 
 if(isset($_GET['id_jeu'])) {
@@ -20,15 +13,6 @@ if(isset($_GET['id_jeu'])) {
     $_SESSION['id_jeu'] = $_GET['id_jeu'];
 }
 ?>
-<div class="row">
-    <div class="col-md-3">
-        <select class="form-control form-control-sm" id="tri" onchange="window.location.href='index_.php?page=accueil.php&tri='+this.value">
-            <option value="">Trier par</option>
-            <option value="prix">Prix</option>
-            <option value="nom">Nom</option>
-        </select>
-    </div>
-</div>
 <div class="album py-5 bg-body-tertiary">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
